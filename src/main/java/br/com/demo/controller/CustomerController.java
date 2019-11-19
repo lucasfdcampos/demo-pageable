@@ -49,11 +49,13 @@ public class CustomerController {
     }
 
     @GetMapping(value = "/list-pagination")
+    @ResponseStatus(HttpStatus.OK)
     public Page<Customer> findAllPagination() {
         return this.customerService.findAllPagination();
     }
 
     @GetMapping(value = "/search")
+    @ResponseStatus(HttpStatus.OK)
     public Page<Customer> search(@RequestParam("searchTerm") String searchTerm,
                                  @RequestParam(value = "page", required = false, defaultValue = "0") int page,
                                  @RequestParam(value = "size", required = false, defaultValue = "10") int size) {
