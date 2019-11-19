@@ -43,16 +43,16 @@ public class CustomerService {
     }
 
     @Transactional(readOnly = true)
-    public Page<Customer> search(String searchTerm, int page, int size) {
-        PageRequest pageRequest = PageRequest.of(page, size, Sort.Direction.ASC, "name");
-        return customerRepository.search(searchTerm.toLowerCase(), pageRequest);
-    }
-
-    @Transactional(readOnly = true)
     public Page<Customer> findAllPagination() {
         int page = 0;
         int size = 10;
         PageRequest pageRequest = PageRequest.of(page, size, Sort.Direction.ASC, "name");
         return new PageImpl<>(customerRepository.findAll(), pageRequest, size);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<Customer> search(String searchTerm, int page, int size) {
+        PageRequest pageRequest = PageRequest.of(page, size, Sort.Direction.ASC, "name");
+        return customerRepository.search(searchTerm.toLowerCase(), pageRequest);
     }
 }
