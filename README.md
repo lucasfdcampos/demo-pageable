@@ -1,2 +1,2 @@
-# demo-pageable
-Projeto pessoal demo Spring Pageable
+# Demo-pageable
+Projeto pessoal demo Spring com search utilizando Pageable
